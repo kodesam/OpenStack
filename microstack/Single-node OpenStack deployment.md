@@ -91,5 +91,75 @@ To get the default list of flavors:
 +----+-----------+-------+------+-----------+-------+-----------+
 ```
 
+### Connect to the instance
+
+Output from the microstack launch command includes all the information needed to connect to the instance over SSH:
+
+```
+ubuntu@openstack:~$ microstack launch cirros -n test
+```
+Creating local "microstack" ssh key at /home/ubuntu/snap/microstack/common/.ssh/id_microstack
+Launching server ...
+Allocating floating ip ...
+Server test launched! (status is BUILD)
+```
+Access it with `ssh -i /home/ubuntu/snap/microstack/common/.ssh/id_microstack cirros@10.20.20.70`
+You can also visit the OpenStack dashboard at https://10.20.20.1:443
+```
+
+```
+ssh -i /home/ubuntu/snap/microstack/common/.ssh/id_microstack cirros@10.20.20.70
+```
+
+Access the cloud dashboard
+
+You can log in to the web UI by pointing your browser to the following URL:
+
+```
+https://10.20.20.1
+
+```
+OR ip address of virtual host underlying physical host machine.
+
+
+```
+https://192.168.64.13
+
+```
+
+```
+
+
+ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 7a:55:a0:b8:0d:f7 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.64.13/24 brd 192.168.64.255 scope global dynamic enp0s2
+       valid_lft 85219sec preferred_lft 85219sec
+    inet6 fd5f:d325:414f:1637:7855:a0ff:feb8:df7/64 scope global dynamic mngtmpaddr noprefixroute 
+       valid_lft 2591954sec preferred_lft 604754sec
+    inet6 fe80::7855:a0ff:feb8:df7/64 scope link 
+       valid_lft forever preferred_lft forever
+3: ovs-system: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 5e:49:00:f1:04:73 brd ff:ff:ff:ff:ff:ff
+4: br-ex: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether ee:14:78:16:80:4e brd ff:ff:ff:ff:ff:ff
+    inet 10.20.20.1/24 scope global br-ex
+       valid_lft forever preferred_lft forever
+    inet6 fe80::ec14:78ff:fe16:804e/64 scope link 
+       valid_lft forever preferred_lft forever
+       
+```
+
+The username is ‘admin’ and the password is obtained in this way:
+
+```
+sudo snap get microstack config.credentials.keystone-password
+```
 
 
