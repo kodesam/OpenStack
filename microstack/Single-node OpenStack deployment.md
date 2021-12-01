@@ -18,7 +18,7 @@ In particular, it will create the database, networks, an image, several flavors,
 
 
 ```sudo microstack init --auto --control```
-
+```
 2021-12-01 06:58:12,339 - microstack_init - INFO - Configuring clustering ...
 2021-12-01 06:58:12,705 - microstack_init - INFO - Setting up as a control node.
 2021-12-01 06:58:16,864 - microstack_init - INFO - Generating TLS Certificate and Key
@@ -58,7 +58,7 @@ Waiting for 192.168.64.13:9292
 2021-12-01 07:07:43,245 - microstack_init - INFO - Running Cinder DB migrations...
 2021-12-01 07:07:59,382 - microstack_init - INFO - restarting libvirt and virtlogd ...
 2021-12-01 07:08:19,291 - microstack_init - INFO - Complete. Marked microstack as initialized!
-
+```
 ### Query OpenStack
 
 The standard openstack client comes pre-installed and is invoked like so:
