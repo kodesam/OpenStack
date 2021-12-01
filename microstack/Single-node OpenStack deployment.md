@@ -68,10 +68,28 @@ The standard openstack client comes pre-installed and is invoked like so:
 To list the default image:
 
 ```microstack.openstack image list```
+```
++--------------------------------------+--------+--------+
+| ID                                   | Name   | Status |
++--------------------------------------+--------+--------+
+| 26bad841-6606-40c5-8a01-decfe57252da | cirros | active |
 
+```
 To get the default list of flavors:
 
 ```microstack.openstack flavor list```
+
+```
++----+-----------+-------+------+-----------+-------+-----------+
+| ID | Name      |   RAM | Disk | Ephemeral | VCPUs | Is Public |
++----+-----------+-------+------+-----------+-------+-----------+
+| 1  | m1.tiny   |   512 |    1 |         0 |     1 | True      |
+| 2  | m1.small  |  2048 |   20 |         0 |     1 | True      |
+| 3  | m1.medium |  4096 |   20 |         0 |     2 | True      |
+| 4  | m1.large  |  8192 |   20 |         0 |     4 | True      |
+| 5  | m1.xlarge | 16384 |   20 |         0 |     8 | True      |
++----+-----------+-------+------+-----------+-------+-----------+
+```
 
 
 
