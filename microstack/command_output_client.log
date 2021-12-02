@@ -1,0 +1,1223 @@
+Last login: Thu Dec  2 00:42:56 on ttys002
+complete:13: command not found: compdef
+aamirsyed@Aamirs-MBP ~ % ping 10.20.20.1
+PING 10.20.20.1 (10.20.20.1): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+Request timeout for icmp_seq 2
+Request timeout for icmp_seq 3
+Request timeout for icmp_seq 4
+^C
+--- 10.20.20.1 ping statistics ---
+6 packets transmitted, 0 packets received, 100.0% packet loss
+aamirsyed@Aamirs-MBP ~ % ping 192.168.64.13
+PING 192.168.64.13 (192.168.64.13): 56 data bytes
+64 bytes from 192.168.64.13: icmp_seq=0 ttl=64 time=0.820 ms
+64 bytes from 192.168.64.13: icmp_seq=1 ttl=64 time=0.460 ms
+64 bytes from 192.168.64.13: icmp_seq=2 ttl=64 time=0.345 ms
+^C
+--- 192.168.64.13 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.345/0.542/0.820/0.202 ms
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-2.sh 
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-2.sh
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % 
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-2.sh
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % openstack --insecure image list
+
+zsh: command not found: openstack
+aamirsyed@Aamirs-MBP ~ % openstack --insecure image list
+
+zsh: command not found: openstack
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-2.sh
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-2.sh
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-5.sh
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-5.sh
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-5.sh
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % cat ~/Downloads/admin-openrc-5.sh
+#!/usr/bin/env bash
+# To use an OpenStack cloud you need to authenticate against the Identity
+# service named keystone, which returns a **Token** and **Service Catalog**.
+# The catalog contains the endpoints for all services the user/tenant has
+# access to - such as Compute, Image Service, Identity, Object Storage, Block
+# Storage, and Networking (code-named nova, glance, keystone, swift,
+# cinder, and neutron).
+#
+# *NOTE*: Using the 3 *Identity API* does not necessarily mean any other
+# OpenStack API is version 3. For example, your cloud provider may implement
+# Image API v1.1, Block Storage API v2, and Compute API v2.0. OS_AUTH_URL is
+# only for the Identity API served through keystone.
+export OS_AUTH_URL=https://192.168.64.13:5000/v3/
+# With the addition of Keystone we have standardized on the term **project**
+# as the entity that owns the resources.
+export OS_PROJECT_ID=494e758a68ba470b83ce0e0f5bed8f6e
+export OS_PROJECT_NAME="admin"
+export OS_USER_DOMAIN_NAME="Default"
+if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
+export OS_PROJECT_DOMAIN_ID="default"
+if [ -z "$OS_PROJECT_DOMAIN_ID" ]; then unset OS_PROJECT_DOMAIN_ID; fi
+# unset v2.0 items in case set
+unset OS_TENANT_ID
+unset OS_TENANT_NAME
+# In addition to the owning entity (tenant), OpenStack stores the entity
+# performing the action as the **user**.
+export OS_USERNAME="admin"
+# With Keystone you pass the keystone password.
+echo "Please enter your OpenStack Password for project $OS_PROJECT_NAME as user $OS_USERNAME: "
+read -sr OS_PASSWORD_INPUT
+export OS_PASSWORD=$OS_PASSWORD_INPUT
+# If your configuration has multiple regions, we set that information here.
+# OS_REGION_NAME is optional and only valid in certain environments.
+export OS_REGION_NAME="microstack"
+# Don't leave a blank variable, unset it if it was empty
+if [ -z "$OS_REGION_NAME" ]; then unset OS_REGION_NAME; fi
+export OS_INTERFACE=public
+export OS_IDENTITY_API_VERSION=3%                                                                                                                                                    aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-5.sh lD83GW4xSnsYeGiabO8AHwEWHaONVPed
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-5.sh                                 
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % multipass
+Usage: multipass [options] <command>
+Create, control and connect to Ubuntu instances.
+
+This is a command line utility for multipass, a
+service that manages Ubuntu instances.
+
+Options:
+  -h, --help     Display this help
+  -v, --verbose  Increase logging verbosity. Repeat the 'v' in the short option
+                 for more detail. Maximum verbosity is obtained with 4 (or more)
+                 v's, i.e. -vvvv.
+
+Available commands:
+  delete    Delete instances
+  exec      Run a command on an instance
+  find      Display available images to create instances from
+  get       Get a configuration setting
+  help      Display help about a command
+  info      Display information about instances
+  launch    Create and start an Ubuntu instance
+  list      List all available instances
+  mount     Mount a local directory in the instance
+  purge     Purge all deleted instances permanently
+  recover   Recover deleted instances
+  restart   Restart instances
+  set       Set a configuration setting
+  shell     Open a shell on a running instance
+  start     Start instances
+  stop      Stop running instances
+  suspend   Suspend running instances
+  transfer  Transfer files between the host and instances
+  umount    Unmount a directory from an instance
+  version   Show version details
+aamirsyed@Aamirs-MBP ~ % multipass shell openstack
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-91-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Dec  2 05:16:09 +04 2021
+
+  System load:             2.71
+  Usage of /:              52.0% of 4.67GB
+  Memory usage:            63%
+  Swap usage:              0%
+  Processes:               254
+  Users logged in:         1
+  IPv4 address for br-ex:  10.20.20.1
+  IPv4 address for enp0s2: 192.168.64.13
+  IPv6 address for enp0s2: fd5f:d325:414f:1637:7855:a0ff:feb8:df7
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+2 updates can be applied immediately.
+1 of these updates is a standard security update.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Thu Dec  2 00:43:37 2021 from 192.168.64.1
+ubuntu@openstack:~$ ls -l
+total 4
+drwxr-xr-x 4 ubuntu ubuntu 4096 Dec  2 04:59 snap
+ubuntu@openstack:~$ ls -l
+total 4
+drwxr-xr-x 4 ubuntu ubuntu 4096 Dec  2 04:59 snap
+ubuntu@openstack:~$ pwd
+/home/ubuntu
+ubuntu@openstack:~$ ls -la
+total 36
+drwxr-xr-x 5 ubuntu ubuntu 4096 Dec  1 07:13 .
+drwxr-xr-x 3 root   root   4096 Dec  1 06:53 ..
+-rw------- 1 ubuntu ubuntu  175 Dec  1 07:13 .bash_history
+-rw-r--r-- 1 ubuntu ubuntu  220 Feb 25  2020 .bash_logout
+-rw-r--r-- 1 ubuntu ubuntu 3771 Feb 25  2020 .bashrc
+drwx------ 2 ubuntu ubuntu 4096 Dec  1 06:53 .cache
+-rw-r--r-- 1 ubuntu ubuntu  807 Feb 25  2020 .profile
+drwx------ 2 ubuntu ubuntu 4096 Dec  2 00:52 .ssh
+-rw-r--r-- 1 ubuntu ubuntu    0 Dec  1 06:55 .sudo_as_admin_successful
+drwxr-xr-x 4 ubuntu ubuntu 4096 Dec  2 04:59 snap
+ubuntu@openstack:~$ curl https://192.168.64.13:5000/v3/
+curl: (60) SSL certificate problem: self signed certificate
+More details here: https://curl.haxx.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the web page mentioned above.
+ubuntu@openstack:~$ exit
+logout
+aamirsyed@Aamirs-MBP ~ % https://192.168.64.13:5000/v3/
+zsh: no such file or directory: https://192.168.64.13:5000/v3/
+aamirsyed@Aamirs-MBP ~ % curl https://192.168.64.13:5000/v3/
+curl: (60) SSL certificate problem: self signed certificate
+More details here: https://curl.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the web page mentioned above.
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-5.sh                                 
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-6.sh 
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ %  
+aamirsyed@Aamirs-MBP ~ % source ~/Downloads/admin-openrc-6.sh 
+Please enter your OpenStack Password for project admin as user admin: 
+aamirsyed@Aamirs-MBP ~ % 
+aamirsyed@Aamirs-MBP ~ % multpass
+zsh: command not found: multpass
+aamirsyed@Aamirs-MBP ~ % multipass
+Usage: multipass [options] <command>
+Create, control and connect to Ubuntu instances.
+
+This is a command line utility for multipass, a
+service that manages Ubuntu instances.
+
+Options:
+  -h, --help     Display this help
+  -v, --verbose  Increase logging verbosity. Repeat the 'v' in the short option
+                 for more detail. Maximum verbosity is obtained with 4 (or more)
+                 v's, i.e. -vvvv.
+
+Available commands:
+  delete    Delete instances
+  exec      Run a command on an instance
+  find      Display available images to create instances from
+  get       Get a configuration setting
+  help      Display help about a command
+  info      Display information about instances
+  launch    Create and start an Ubuntu instance
+  list      List all available instances
+  mount     Mount a local directory in the instance
+  purge     Purge all deleted instances permanently
+  recover   Recover deleted instances
+  restart   Restart instances
+  set       Set a configuration setting
+  shell     Open a shell on a running instance
+  start     Start instances
+  stop      Stop running instances
+  suspend   Suspend running instances
+  transfer  Transfer files between the host and instances
+  umount    Unmount a directory from an instance
+  version   Show version details
+aamirsyed@Aamirs-MBP ~ % multipass launch --name client
+Launched: client                                                                
+aamirsyed@Aamirs-MBP ~ % multipass shell client        
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-91-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+
+1 update can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@client:~$ ls -l
+total 0
+ubuntu@client:~$ ls -l
+total 0
+ubuntu@client:~$ pwd
+/home/ubuntu
+ubuntu@client:~$ vi admin-openrc.sh
+ubuntu@client:~$ source admin-openrc-2.sh
+-bash: admin-openrc-2.sh: No such file or directory
+ubuntu@client:~$ ls -l
+total 4
+-rw-rw-r-- 1 ubuntu ubuntu 1943 Dec  2 05:31 admin-openrc.sh
+ubuntu@client:~$ source admin-openrc.sh
+Please enter your OpenStack Password for project admin as user admin: 
+ubuntu@client:~$ source admin-openrc.sh
+Please enter your OpenStack Password for project admin as user admin: 
+ubuntu@client:~$ sudo snap install openstackclients
+openstackclients (xena/stable) xena from Canonical✓ installed
+ubuntu@client:~$ source admin-openrc.sh
+Please enter your OpenStack Password for project admin as user admin: 
+ubuntu@client:~$ source admin-openrc.sh
+Please enter your OpenStack Password for project admin as user admin: 
+ubuntu@client:~$ ls -l
+total 4
+-rw-rw-r-- 1 ubuntu ubuntu 1943 Dec  2 05:31 admin-openrc.sh
+ubuntu@client:~$ openstack
+(openstack) openstack --insecure image list
+openstack: 'openstack --insecure image list' is not an openstack command. See 'openstack --help'.
+Did you mean one of these?
+  consistency group add volume
+  consistency group create
+  consistency group delete
+  consistency group list
+  consistency group remove volume
+  consistency group set
+  consistency group show
+  consistency group snapshot create
+  consistency group snapshot delete
+  consistency group snapshot list
+  consistency group snapshot show
+  stack abandon
+  stack adopt
+  stack cancel
+  stack check
+  stack create
+  stack delete
+  stack environment show
+  stack event list
+  stack event show
+  stack export
+  stack failures list
+  stack file list
+  stack hook clear
+  stack hook poll
+  stack list
+  stack output list
+  stack output show
+  stack resource list
+  stack resource mark unhealthy
+  stack resource metadata
+  stack resource show
+  stack resource signal
+  stack resume
+  stack show
+  stack snapshot create
+  stack snapshot delete
+  stack snapshot list
+  stack snapshot restore
+  stack snapshot show
+  stack suspend
+  stack template show
+  stack update
+(openstack) openstack --insecure image list
+openstack: 'openstack --insecure image list' is not an openstack command. See 'openstack --help'.
+Did you mean one of these?
+  consistency group add volume
+  consistency group create
+  consistency group delete
+  consistency group list
+  consistency group remove volume
+  consistency group set
+  consistency group show
+  consistency group snapshot create
+  consistency group snapshot delete
+  consistency group snapshot list
+  consistency group snapshot show
+  stack abandon
+  stack adopt
+  stack cancel
+  stack check
+  stack create
+  stack delete
+  stack environment show
+  stack event list
+  stack event show
+  stack export
+  stack failures list
+  stack file list
+  stack hook clear
+  stack hook poll
+  stack list
+  stack output list
+  stack output show
+  stack resource list
+  stack resource mark unhealthy
+  stack resource metadata
+  stack resource show
+  stack resource signal
+  stack resume
+  stack show
+  stack snapshot create
+  stack snapshot delete
+  stack snapshot list
+  stack snapshot restore
+  stack snapshot show
+  stack suspend
+  stack template show
+  stack update
+(openstack) --insecure image list
+openstack: '--insecure image list' is not an openstack command. See 'openstack --help'.
+Did you mean one of these?
+  consumer create
+  consumer delete
+  consumer list
+  consumer set
+  consumer show
+  resource class create
+  resource class delete
+  resource class list
+  resource class set
+  resource class show
+  resource member create
+  resource member delete
+  resource member list
+  resource member show
+  resource member update
+  resource provider aggregate list
+  resource provider aggregate set
+  resource provider allocation delete
+  resource provider allocation set
+  resource provider allocation show
+  resource provider allocation unset
+  resource provider create
+  resource provider delete
+  resource provider inventory class set
+  resource provider inventory delete
+  resource provider inventory list
+  resource provider inventory set
+  resource provider inventory show
+  resource provider list
+  resource provider set
+  resource provider show
+  resource provider trait delete
+  resource provider trait list
+  resource provider trait set
+  resource provider usage show
+  resource usage show
+(openstack) q
+openstack: 'q' is not an openstack command. See 'openstack --help'.
+Did you mean one of these?
+  queue create
+  queue delete
+  queue get metadata
+  queue list
+  queue purge
+  queue set metadata
+  queue signed url
+  queue stats
+  quota list
+  quota set
+  quota show
+  ca get
+  ca list
+  ip availability list
+  ip availability show
+  ns create
+  ns delete
+  ns descriptor create
+  ns descriptor delete
+  ns descriptor list
+  ns descriptor show
+  ns descriptor template show
+  ns list
+  ns show
+(openstack) 
+(openstack) 
+(openstack) 
+(openstack) 
+(openstack) 
+(openstack) image list
+Failed to discover available identity versions when contacting https://192.168.64.13:5000/v3/. Attempting to parse version from URL.
+SSL exception connecting to https://192.168.64.13:5000/v3/auth/tokens: HTTPSConnectionPool(host='192.168.64.13', port=5000): Max retries exceeded with url: /v3/auth/tokens (Caused by SSLError(SSLError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)'),))
+(openstack) --insecure image list
+openstack: '--insecure image list' is not an openstack command. See 'openstack --help'.
+Did you mean one of these?
+  consumer create
+  consumer delete
+  consumer list
+  consumer set
+  consumer show
+  resource class create
+  resource class delete
+  resource class list
+  resource class set
+  resource class show
+  resource member create
+  resource member delete
+  resource member list
+  resource member show
+  resource member update
+  resource provider aggregate list
+  resource provider aggregate set
+  resource provider allocation delete
+  resource provider allocation set
+  resource provider allocation show
+  resource provider allocation unset
+  resource provider create
+  resource provider delete
+  resource provider inventory class set
+  resource provider inventory delete
+  resource provider inventory list
+  resource provider inventory set
+  resource provider inventory show
+  resource provider list
+  resource provider set
+  resource provider show
+  resource provider trait delete
+  resource provider trait list
+  resource provider trait set
+  resource provider usage show
+  resource usage show
+(openstack) 
+(openstack) 
+(openstack) 
+(openstack) exit
+ubuntu@client:~$ openstack --insecure image list
+
++--------------------------------------+--------------+--------+
+| ID                                   | Name         | Status |
++--------------------------------------+--------------+--------+
+| 26bad841-6606-40c5-8a01-decfe57252da | cirros       | active |
+| a0ed1a5d-772c-4447-a968-5dfecf3a9bb0 | test-shelved | active |
++--------------------------------------+--------------+--------+
+ubuntu@client:~$ 
+ubuntu@client:~$ exit
+logout
+aamirsyed@Aamirs-MBP ~ % multipass                     
+Usage: multipass [options] <command>
+Create, control and connect to Ubuntu instances.
+
+This is a command line utility for multipass, a
+service that manages Ubuntu instances.
+
+Options:
+  -h, --help     Display this help
+  -v, --verbose  Increase logging verbosity. Repeat the 'v' in the short option
+                 for more detail. Maximum verbosity is obtained with 4 (or more)
+                 v's, i.e. -vvvv.
+
+Available commands:
+  delete    Delete instances
+  exec      Run a command on an instance
+  find      Display available images to create instances from
+  get       Get a configuration setting
+  help      Display help about a command
+  info      Display information about instances
+  launch    Create and start an Ubuntu instance
+  list      List all available instances
+  mount     Mount a local directory in the instance
+  purge     Purge all deleted instances permanently
+  recover   Recover deleted instances
+  restart   Restart instances
+  set       Set a configuration setting
+  shell     Open a shell on a running instance
+  start     Start instances
+  stop      Stop running instances
+  suspend   Suspend running instances
+  transfer  Transfer files between the host and instances
+  umount    Unmount a directory from an instance
+  version   Show version details
+aamirsyed@Aamirs-MBP ~ % multipass stop client
+aamirsyed@Aamirs-MBP ~ % 
+aamirsyed@Aamirs-MBP ~ % 
+aamirsyed@Aamirs-MBP ~ % clear                
+
+aamirsyed@Aamirs-MBP ~ % multipass shell client
+Starting client  Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-91-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+
+1 update can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Thu Dec  2 05:29:14 2021 from 192.168.64.1
+ubuntu@client:~$ openstack --insecure image list
+Missing value auth-url required for auth plugin password
+ubuntu@client:~$ source admin-openrc.sh
+Please enter your OpenStack Password for project admin as user admin: 
+ubuntu@client:~$ openstack --insecure image list
++--------------------------------------+--------------+--------+
+| ID                                   | Name         | Status |
++--------------------------------------+--------------+--------+
+| 26bad841-6606-40c5-8a01-decfe57252da | cirros       | active |
+| a0ed1a5d-772c-4447-a968-5dfecf3a9bb0 | test-shelved | active |
++--------------------------------------+--------------+--------+
+ubuntu@client:~$ openstack --insecure catalog list
++-----------+-----------+----------------------------------------------------------------------------+
+| Name      | Type      | Endpoints                                                                  |
++-----------+-----------+----------------------------------------------------------------------------+
+| keystone  | identity  | microstack                                                                 |
+|           |           |   internal: https://192.168.64.13:5000/v3/                                 |
+|           |           | microstack                                                                 |
+|           |           |   admin: https://192.168.64.13:5000/v3/                                    |
+|           |           | microstack                                                                 |
+|           |           |   public: https://192.168.64.13:5000/v3/                                   |
+|           |           |                                                                            |
+| cinderv2  | volumev2  | microstack                                                                 |
+|           |           |   admin: https://192.168.64.13:8776/v2/494e758a68ba470b83ce0e0f5bed8f6e    |
+|           |           | microstack                                                                 |
+|           |           |   public: https://192.168.64.13:8776/v2/494e758a68ba470b83ce0e0f5bed8f6e   |
+|           |           | microstack                                                                 |
+|           |           |   internal: https://192.168.64.13:8776/v2/494e758a68ba470b83ce0e0f5bed8f6e |
+|           |           |                                                                            |
+| placement | placement | microstack                                                                 |
+|           |           |   public: https://192.168.64.13:8778                                       |
+|           |           | microstack                                                                 |
+|           |           |   admin: https://192.168.64.13:8778                                        |
+|           |           | microstack                                                                 |
+|           |           |   internal: https://192.168.64.13:8778                                     |
+|           |           |                                                                            |
+| nova      | compute   | microstack                                                                 |
+|           |           |   admin: https://192.168.64.13:8774/v2.1                                   |
+|           |           | microstack                                                                 |
+|           |           |   public: https://192.168.64.13:8774/v2.1                                  |
+|           |           | microstack                                                                 |
+|           |           |   internal: https://192.168.64.13:8774/v2.1                                |
+|           |           |                                                                            |
+| cinderv3  | volumev3  | microstack                                                                 |
+|           |           |   public: https://192.168.64.13:8776/v3/494e758a68ba470b83ce0e0f5bed8f6e   |
+|           |           | microstack                                                                 |
+|           |           |   internal: https://192.168.64.13:8776/v3/494e758a68ba470b83ce0e0f5bed8f6e |
+|           |           | microstack                                                                 |
+|           |           |   admin: https://192.168.64.13:8776/v3/494e758a68ba470b83ce0e0f5bed8f6e    |
+|           |           |                                                                            |
+| neutron   | network   | microstack                                                                 |
+|           |           |   public: https://192.168.64.13:9696                                       |
+|           |           | microstack                                                                 |
+|           |           |   admin: https://192.168.64.13:9696                                        |
+|           |           | microstack                                                                 |
+|           |           |   internal: https://192.168.64.13:9696                                     |
+|           |           |                                                                            |
+| glance    | image     | microstack                                                                 |
+|           |           |   admin: https://192.168.64.13:9292                                        |
+|           |           | microstack                                                                 |
+|           |           |   public: https://192.168.64.13:9292                                       |
+|           |           | microstack                                                                 |
+|           |           |   internal: https://192.168.64.13:9292                                     |
+|           |           |                                                                            |
++-----------+-----------+----------------------------------------------------------------------------+
+ubuntu@client:~$ openstack --insecure user list
++----------------------------------+-----------+
+| ID                               | Name      |
++----------------------------------+-----------+
+| 6200a72a5292411fa2c88128807772bc | admin     |
+| 5a92471016744ccfae2e1bd007533bf6 | placement |
+| cce039ab3d744318986d086c038f76d0 | nova      |
+| ff7191ac2de44246a4d9b515ac3afe57 | neutron   |
+| e8ba4c0a68aa4c83a8a036417ef507d8 | glance    |
+| f667c6505efc4768983f05e394220938 | cinder    |
++----------------------------------+-----------+
+ubuntu@client:~$  openstack --insecure image list
++--------------------------------------+--------------+--------+
+| ID                                   | Name         | Status |
++--------------------------------------+--------------+--------+
+| 26bad841-6606-40c5-8a01-decfe57252da | cirros       | active |
+| a0ed1a5d-772c-4447-a968-5dfecf3a9bb0 | test-shelved | active |
++--------------------------------------+--------------+--------+
+ubuntu@client:~$ openstack --insecure network list
++--------------------------------------+----------+--------------------------------------+
+| ID                                   | Name     | Subnets                              |
++--------------------------------------+----------+--------------------------------------+
+| 1c2552f4-b868-4ab0-9dab-d0f09149b9ff | test     | 8b61ce43-81e1-4841-a8bb-c34f7a4cb713 |
+| aa5fb043-0600-4154-a1dc-4d09d468d84d | external | c4128a24-07f4-4018-8860-982bce7bdcb4 |
++--------------------------------------+----------+--------------------------------------+
+ubuntu@client:~$ openstack --insecure hypervisor list
++----+---------------------+-----------------+---------------+-------+
+| ID | Hypervisor Hostname | Hypervisor Type | Host IP       | State |
++----+---------------------+-----------------+---------------+-------+
+|  1 | openstack           | QEMU            | 192.168.64.13 | up    |
++----+---------------------+-----------------+---------------+-------+
+ubuntu@client:~$ openstack --insecure volume list
+
+ubuntu@client:~$  openstack --insecure flavor list
+
++----+-----------+-------+------+-----------+-------+-----------+
+| ID | Name      |   RAM | Disk | Ephemeral | VCPUs | Is Public |
++----+-----------+-------+------+-----------+-------+-----------+
+| 1  | m1.tiny   |   512 |    1 |         0 |     1 | True      |
+| 2  | m1.small  |  2048 |   20 |         0 |     1 | True      |
+| 3  | m1.medium |  4096 |   20 |         0 |     2 | True      |
+| 4  | m1.large  |  8192 |   20 |         0 |     4 | True      |
+| 5  | m1.xlarge | 16384 |   20 |         0 |     8 | True      |
++----+-----------+-------+------+-----------+-------+-----------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure flavor create --ram 1024 --disk 10 --vcpus 1 myflavor
++----------------------------+--------------------------------------+
+| Field                      | Value                                |
++----------------------------+--------------------------------------+
+| OS-FLV-DISABLED:disabled   | False                                |
+| OS-FLV-EXT-DATA:ephemeral  | 0                                    |
+| description                | None                                 |
+| disk                       | 10                                   |
+| id                         | 513f9163-eff9-439b-9aa0-30299036152d |
+| name                       | myflavor                             |
+| os-flavor-access:is_public | True                                 |
+| properties                 |                                      |
+| ram                        | 1024                                 |
+| rxtx_factor                | 1.0                                  |
+| swap                       |                                      |
+| vcpus                      | 1                                    |
++----------------------------+--------------------------------------+
+ubuntu@client:~$ openstack --insecure volume list
+
+ubuntu@client:~$ openstack --insecure flavor list
++--------------------------------------+-----------+-------+------+-----------+-------+-----------+
+| ID                                   | Name      |   RAM | Disk | Ephemeral | VCPUs | Is Public |
++--------------------------------------+-----------+-------+------+-----------+-------+-----------+
+| 1                                    | m1.tiny   |   512 |    1 |         0 |     1 | True      |
+| 2                                    | m1.small  |  2048 |   20 |         0 |     1 | True      |
+| 3                                    | m1.medium |  4096 |   20 |         0 |     2 | True      |
+| 4                                    | m1.large  |  8192 |   20 |         0 |     4 | True      |
+| 5                                    | m1.xlarge | 16384 |   20 |         0 |     8 | True      |
+| 513f9163-eff9-439b-9aa0-30299036152d | myflavor  |  1024 |   10 |         0 |     1 | True      |
++--------------------------------------+-----------+-------+------+-----------+-------+-----------+
+ubuntu@client:~$ openstack --insecure domain list
+
++---------+---------+---------+--------------------+
+| ID      | Name    | Enabled | Description        |
++---------+---------+---------+--------------------+
+| default | Default | True    | The default domain |
++---------+---------+---------+--------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure domain create --description "My domain" mydomain
+
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | My domain                        |
+| enabled     | True                             |
+| id          | 746319c8b40f44bb99adf34de3ccbfaf |
+| name        | mydomain                         |
+| options     | {}                               |
+| tags        | []                               |
++-------------+----------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure domain list
++----------------------------------+----------+---------+--------------------+
+| ID                               | Name     | Enabled | Description        |
++----------------------------------+----------+---------+--------------------+
+| 746319c8b40f44bb99adf34de3ccbfaf | mydomain | True    | My domain          |
+| default                          | Default  | True    | The default domain |
++----------------------------------+----------+---------+--------------------+
+ubuntu@client:~$  openstack --insecure user create --domain mydomain --password admin admin
++---------------------+----------------------------------+
+| Field               | Value                            |
++---------------------+----------------------------------+
+| domain_id           | 746319c8b40f44bb99adf34de3ccbfaf |
+| enabled             | True                             |
+| id                  | f8f26d99f8c3486a83da8c8cbcbe0fd5 |
+| name                | admin                            |
+| options             | {}                               |
+| password_expires_at | None                             |
++---------------------+----------------------------------+
+ubuntu@client:~$ openstack --insecure role add --domain mydomain --user-domain mydomain --user admin admin
+
+ubuntu@client:~$ 
+ubuntu@client:~$ sudo bash -c 'cat > /var/snap/microstack/common/etc/horizon/local_settings.d/_10_enable_multidomain_support.py' << EOF
+> OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
+> EOF
+bash: /var/snap/microstack/common/etc/horizon/local_settings.d/_10_enable_multidomain_support.py: No such file or directory
+ubuntu@client:~$ openstack --insecure role list
++----------------------------------+--------+
+| ID                               | Name   |
++----------------------------------+--------+
+| 3aca840b8a88463a80bb564a66514d42 | reader |
+| a37e1e862d6247de878004a23c80179d | member |
+| e700fc4a8c06445cbb592200d1b48bee | admin  |
++----------------------------------+--------+
+ubuntu@client:~$ openstack --insecure role create _member_
+
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | None                             |
+| domain_id   | None                             |
+| id          | 9059280fb22844f5bbbc0ba69a45d987 |
+| name        | _member_                         |
+| options     | {}                               |
++-------------+----------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure role list
++----------------------------------+----------+
+| ID                               | Name     |
++----------------------------------+----------+
+| 3aca840b8a88463a80bb564a66514d42 | reader   |
+| 9059280fb22844f5bbbc0ba69a45d987 | _member_ |
+| a37e1e862d6247de878004a23c80179d | member   |
+| e700fc4a8c06445cbb592200d1b48bee | admin    |
++----------------------------------+----------+
+ubuntu@client:~$ openstack --insecure project list --domain mydomain
+
+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure project create --domain mydomain myproject
+
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description |                                  |
+| domain_id   | 746319c8b40f44bb99adf34de3ccbfaf |
+| enabled     | True                             |
+| id          | 8e710a398d0f436e8d02e25553994484 |
+| is_domain   | False                            |
+| name        | myproject                        |
+| options     | {}                               |
+| parent_id   | 746319c8b40f44bb99adf34de3ccbfaf |
+| tags        | []                               |
++-------------+----------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure project list --domain mydomain
++----------------------------------+-----------+
+| ID                               | Name      |
++----------------------------------+-----------+
+| 8e710a398d0f436e8d02e25553994484 | myproject |
++----------------------------------+-----------+
+ubuntu@client:~$ openstack --insecure user create --domain mydomain --password mypassword myuser
++---------------------+----------------------------------+
+| Field               | Value                            |
++---------------------+----------------------------------+
+| domain_id           | 746319c8b40f44bb99adf34de3ccbfaf |
+| enabled             | True                             |
+| id                  | 226960b365dd464285457b9d42ced473 |
+| name                | myuser                           |
+| options             | {}                               |
+| password_expires_at | None                             |
++---------------------+----------------------------------+
+ubuntu@client:~$ openstack --insecure user list --domain mydomain
+
++----------------------------------+--------+
+| ID                               | Name   |
++----------------------------------+--------+
+| f8f26d99f8c3486a83da8c8cbcbe0fd5 | admin  |
+| 226960b365dd464285457b9d42ced473 | myuser |
++----------------------------------+--------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure group create --domain mydomain mygroup
+
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description |                                  |
+| domain_id   | 746319c8b40f44bb99adf34de3ccbfaf |
+| id          | ba0a7a9d0a0841fcae05a04f62c51021 |
+| name        | mygroup                          |
++-------------+----------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure group list --domain mydomain
+
++----------------------------------+---------+
+| ID                               | Name    |
++----------------------------------+---------+
+| ba0a7a9d0a0841fcae05a04f62c51021 | mygroup |
++----------------------------------+---------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure group add user --group-domain mydomain --user-domain mydomain mygroup myuser
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure role add --project myproject --project-domain mydomain --group mygroup member
+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure role add --project myproject --project-domain mydomain --user admin --user-domain mydomain member
+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure role add --project myproject --project-domain mydomain --user admin --user-domain mydomain admin
+
+ubuntu@client:~$ 
+ubuntu@client:~$ ls -l
+total 8
+-rw-rw-r-- 1 ubuntu ubuntu 1943 Dec  2 05:31 admin-openrc.sh
+drwxr-xr-x 3 ubuntu ubuntu 4096 Dec  2 05:35 snap
+ubuntu@client:~$ vi admin-openrc-mydomain.sh
+ubuntu@client:~$ source admin-openrc-mydomain.sh 
+Please enter your OpenStack Password for project myproject as user admin: 
+ubuntu@client:~$ openstack --insecure server list
+
+ubuntu@client:~$ vi myuser-openrc.sh
+ubuntu@client:~$ source myuser-openrc.sh 
+Please enter your OpenStack Password for project myproject as user myuser: 
+ubuntu@client:~$ openstack --insecure image list
+
++--------------------------------------+--------+--------+
+| ID                                   | Name   | Status |
++--------------------------------------+--------+--------+
+| 26bad841-6606-40c5-8a01-decfe57252da | cirros | active |
++--------------------------------------+--------+--------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure user list
+You are not authorized to perform the requested action: identity:list_users. (HTTP 403) (Request-ID: req-499ee1e9-cb46-4a0d-8e6d-d69f245280fe)
+ubuntu@client:~$ ls -l
+total 16
+-rw-rw-r-- 1 ubuntu ubuntu 1973 Dec  2 06:23 admin-openrc-mydomain.sh
+-rw-rw-r-- 1 ubuntu ubuntu 1943 Dec  2 05:31 admin-openrc.sh
+-rw-rw-r-- 1 ubuntu ubuntu 1974 Dec  2 06:38 myuser-openrc.sh
+drwxr-xr-x 3 ubuntu ubuntu 4096 Dec  2 05:35 snap
+ubuntu@client:~$ openstack --insecure keypair create --private-key ~/Downloads/mykeypair.pem --type ssh mykeypair
+^[[AKey file /home/ubuntu/Downloads/mykeypair.pem can not be saved: [Errno 2] No such file or directory: '/home/ubuntu/Downloads/mykeypair.pem'
+ubuntu@client:~$ openstack --insecure keypair create --private-key mykeypair.pem --type ssh mykeypair
+ConflictException: 409: Client Error for url: https://192.168.64.13:8774/v2.1/os-keypairs, Key pair 'mykeypair' already exists.
+ubuntu@client:~$ openstack --insecure keypair create --private-key mykeypair1.pem --type ssh mykeypair1
++-------------+-------------------------------------------------+
+| Field       | Value                                           |
++-------------+-------------------------------------------------+
+| created_at  | None                                            |
+| fingerprint | 56:16:24:2d:04:de:d3:58:29:20:0b:dd:63:79:67:31 |
+| id          | mykeypair1                                      |
+| is_deleted  | None                                            |
+| name        | mykeypair1                                      |
+| type        | ssh                                             |
+| user_id     | 226960b365dd464285457b9d42ced473                |
++-------------+-------------------------------------------------+
+ubuntu@client:~$ openstack --insecure keypair list
+
++------------+-------------------------------------------------+------+
+| Name       | Fingerprint                                     | Type |
++------------+-------------------------------------------------+------+
+| mykeypair  | 11:69:eb:45:9b:c4:b5:31:35:a1:75:39:0e:d4:d6:60 | ssh  |
+| mykeypair1 | 56:16:24:2d:04:de:d3:58:29:20:0b:dd:63:79:67:31 | ssh  |
++------------+-------------------------------------------------+------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure network create mynetwork
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | UP                                   |
+| availability_zone_hints   |                                      |
+| availability_zones        |                                      |
+| created_at                | 2021-12-02T02:42:36Z                 |
+| description               |                                      |
+| dns_domain                | None                                 |
+| id                        | 32b1a8b3-8057-46e8-ad97-48351dde9d9f |
+| ipv4_address_scope        | None                                 |
+| ipv6_address_scope        | None                                 |
+| is_default                | False                                |
+| is_vlan_transparent       | None                                 |
+| mtu                       | 1442                                 |
+| name                      | mynetwork                            |
+| port_security_enabled     | True                                 |
+| project_id                | 8e710a398d0f436e8d02e25553994484     |
+| provider:network_type     | None                                 |
+| provider:physical_network | None                                 |
+| provider:segmentation_id  | None                                 |
+| qos_policy_id             | None                                 |
+| revision_number           | 1                                    |
+| router:external           | Internal                             |
+| segments                  | None                                 |
+| shared                    | False                                |
+| status                    | ACTIVE                               |
+| subnets                   |                                      |
+| tags                      |                                      |
+| updated_at                | 2021-12-02T02:42:37Z                 |
++---------------------------+--------------------------------------+
+ubuntu@client:~$ openstack --insecure network list
+
++--------------------------------------+-----------+--------------------------------------+
+| ID                                   | Name      | Subnets                              |
++--------------------------------------+-----------+--------------------------------------+
+| 32b1a8b3-8057-46e8-ad97-48351dde9d9f | mynetwork |                                      |
+| aa5fb043-0600-4154-a1dc-4d09d468d84d | external  | c4128a24-07f4-4018-8860-982bce7bdcb4 |
++--------------------------------------+-----------+--------------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure subnet create --network mynetwork --subnet-range 192.168.0.0/24 --allocation-pool start=192.168.0.101,end=192.168.0.200 --dns-nameserver 8.8.8.8 mysubnet
+
++----------------------+--------------------------------------+
+| Field                | Value                                |
++----------------------+--------------------------------------+
+| allocation_pools     | 192.168.0.101-192.168.0.200          |
+| cidr                 | 192.168.0.0/24                       |
+| created_at           | 2021-12-02T02:43:52Z                 |
+| description          |                                      |
+| dns_nameservers      | 8.8.8.8                              |
+| dns_publish_fixed_ip | None                                 |
+| enable_dhcp          | True                                 |
+| gateway_ip           | 192.168.0.1                          |
+| host_routes          |                                      |
+| id                   | a15a9892-8d60-4249-95fe-ae51a3f8dd56 |
+| ip_version           | 4                                    |
+| ipv6_address_mode    | None                                 |
+| ipv6_ra_mode         | None                                 |
+| name                 | mysubnet                             |
+| network_id           | 32b1a8b3-8057-46e8-ad97-48351dde9d9f |
+| project_id           | 8e710a398d0f436e8d02e25553994484     |
+| revision_number      | 0                                    |
+| segment_id           | None                                 |
+| service_types        |                                      |
+| subnetpool_id        | None                                 |
+| tags                 |                                      |
+| updated_at           | 2021-12-02T02:43:52Z                 |
++----------------------+--------------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure subnet list
+
++--------------------------------------+----------+--------------------------------------+----------------+
+| ID                                   | Name     | Network                              | Subnet         |
++--------------------------------------+----------+--------------------------------------+----------------+
+| a15a9892-8d60-4249-95fe-ae51a3f8dd56 | mysubnet | 32b1a8b3-8057-46e8-ad97-48351dde9d9f | 192.168.0.0/24 |
++--------------------------------------+----------+--------------------------------------+----------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure router list
+
+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure router create myrouter
+
++-------------------------+--------------------------------------+
+| Field                   | Value                                |
++-------------------------+--------------------------------------+
+| admin_state_up          | UP                                   |
+| availability_zone_hints |                                      |
+| availability_zones      |                                      |
+| created_at              | 2021-12-02T02:45:00Z                 |
+| description             |                                      |
+| external_gateway_info   | null                                 |
+| flavor_id               | None                                 |
+| id                      | 84999372-5e59-4302-b828-0d68a1e53d93 |
+| name                    | myrouter                             |
+| project_id              | 8e710a398d0f436e8d02e25553994484     |
+| revision_number         | 1                                    |
+| routes                  |                                      |
+| status                  | ACTIVE                               |
+| tags                    |                                      |
+| updated_at              | 2021-12-02T02:45:00Z                 |
++-------------------------+--------------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure router list
++--------------------------------------+----------+--------+-------+----------------------------------+
+| ID                                   | Name     | Status | State | Project                          |
++--------------------------------------+----------+--------+-------+----------------------------------+
+| 84999372-5e59-4302-b828-0d68a1e53d93 | myrouter | ACTIVE | UP    | 8e710a398d0f436e8d02e25553994484 |
++--------------------------------------+----------+--------+-------+----------------------------------+
+ubuntu@client:~$ openstack --insecure router set --external-gateway external myrouter
+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure router add subnet myrouter mysubnet
+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure floating ip list
+
+ubuntu@client:~$ openstack --insecure floating ip create external
+
++---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| created_at          | 2021-12-02T02:48:12Z                 |
+| description         |                                      |
+| dns_domain          | None                                 |
+| dns_name            | None                                 |
+| fixed_ip_address    | None                                 |
+| floating_ip_address | 10.20.20.80                          |
+| floating_network_id | aa5fb043-0600-4154-a1dc-4d09d468d84d |
+| id                  | a1451721-6544-4ce5-b0bf-5ee0997198e2 |
+| name                | 10.20.20.80                          |
+| port_details        | None                                 |
+| port_id             | None                                 |
+| project_id          | 8e710a398d0f436e8d02e25553994484     |
+| qos_policy_id       | None                                 |
+| revision_number     | 0                                    |
+| router_id           | None                                 |
+| status              | DOWN                                 |
+| subnet_id           | None                                 |
+| tags                | []                                   |
+| updated_at          | 2021-12-02T02:48:12Z                 |
++---------------------+--------------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure floating ip list
++--------------------------------------+---------------------+------------------+------+--------------------------------------+----------------------------------+
+| ID                                   | Floating IP Address | Fixed IP Address | Port | Floating Network                     | Project                          |
++--------------------------------------+---------------------+------------------+------+--------------------------------------+----------------------------------+
+| a1451721-6544-4ce5-b0bf-5ee0997198e2 | 10.20.20.80         | None             | None | aa5fb043-0600-4154-a1dc-4d09d468d84d | 8e710a398d0f436e8d02e25553994484 |
++--------------------------------------+---------------------+------------------+------+--------------------------------------+----------------------------------+
+ubuntu@client:~$ openstack --insecure security group create mysecuritygroup
+
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field           | Value                                                                                                                                                 |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+| created_at      | 2021-12-02T02:49:16Z                                                                                                                                  |
+| description     | mysecuritygroup                                                                                                                                       |
+| id              | 1b0ebc10-b8fb-4952-abf9-ca0559cd0b0a                                                                                                                  |
+| name            | mysecuritygroup                                                                                                                                       |
+| project_id      | 8e710a398d0f436e8d02e25553994484                                                                                                                      |
+| revision_number | 1                                                                                                                                                     |
+| rules           | created_at='2021-12-02T02:49:16Z', direction='egress', ethertype='IPv4', id='21f37920-f046-4ed4-875f-e8174e9aa4c4', updated_at='2021-12-02T02:49:16Z' |
+|                 | created_at='2021-12-02T02:49:16Z', direction='egress', ethertype='IPv6', id='d120ebd1-d940-4c0f-877e-f6dca1b9f841', updated_at='2021-12-02T02:49:16Z' |
+| stateful        | True                                                                                                                                                  |
+| tags            | []                                                                                                                                                    |
+| updated_at      | 2021-12-02T02:49:16Z                                                                                                                                  |
++-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure security group list
+
++--------------------------------------+-----------------+------------------------+----------------------------------+------+
+| ID                                   | Name            | Description            | Project                          | Tags |
++--------------------------------------+-----------------+------------------------+----------------------------------+------+
+| 1b0ebc10-b8fb-4952-abf9-ca0559cd0b0a | mysecuritygroup | mysecuritygroup        | 8e710a398d0f436e8d02e25553994484 | []   |
+| 9cd5538a-fab7-4a32-a127-8e017cc43294 | default         | Default security group | 8e710a398d0f436e8d02e25553994484 | []   |
++--------------------------------------+-----------------+------------------------+----------------------------------+------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure security group rule create --remote-ip 0.0.0.0/0 --dst-port 22:22 --protocol tcp --ingress mysecuritygroup
+
++-------------------------+--------------------------------------+
+| Field                   | Value                                |
++-------------------------+--------------------------------------+
+| created_at              | 2021-12-02T02:50:21Z                 |
+| description             |                                      |
+| direction               | ingress                              |
+| ether_type              | IPv4                                 |
+| id                      | db98434b-e5a5-4e42-9c71-2812c32871d0 |
+| name                    | None                                 |
+| port_range_max          | 22                                   |
+| port_range_min          | 22                                   |
+| project_id              | 8e710a398d0f436e8d02e25553994484     |
+| protocol                | tcp                                  |
+| remote_address_group_id | None                                 |
+| remote_group_id         | None                                 |
+| remote_ip_prefix        | 0.0.0.0/0                            |
+| revision_number         | 0                                    |
+| security_group_id       | 1b0ebc10-b8fb-4952-abf9-ca0559cd0b0a |
+| tags                    | []                                   |
+| updated_at              | 2021-12-02T02:50:21Z                 |
++-------------------------+--------------------------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure security group rule list mysecuritygroup
+
++--------------------------------------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+| ID                                   | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
++--------------------------------------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+| 21f37920-f046-4ed4-875f-e8174e9aa4c4 | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
+| d120ebd1-d940-4c0f-877e-f6dca1b9f841 | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
+| db98434b-e5a5-4e42-9c71-2812c32871d0 | tcp         | IPv4      | 0.0.0.0/0 | 22:22      | ingress   | None                  | None                 |
++--------------------------------------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+ubuntu@client:~$ 
+ubuntu@client:~$ #openstack --insecure server create --flavor myflavor --image 20.04 --network mynetwork --key-name mykeypair --min 2 --max 2 myinstance
+ubuntu@client:~$ #openstack --insecure server create --flavor myflavor --image 20.04 --network mynetwork --key-name mykeypair1 --min 1 --max 1 myinstance
+ubuntu@client:~$ openstack --insecure server create --flavor myflavor --image 20.04 --network mynetwork --key-name mykeypair1 --min 1 --max 1 myinstance
+No Image found for 20.04
+ubuntu@client:~$ openstack image list
+Failed to discover available identity versions when contacting https://192.168.64.13:5000/v3/. Attempting to parse version from URL.
+SSL exception connecting to https://192.168.64.13:5000/v3/auth/tokens: HTTPSConnectionPool(host='192.168.64.13', port=5000): Max retries exceeded with url: /v3/auth/tokens (Caused by SSLError(SSLError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)'),))
+ubuntu@client:~$ openstack flavor list
+Failed to discover available identity versions when contacting https://192.168.64.13:5000/v3/. Attempting to parse version from URL.
+SSL exception connecting to https://192.168.64.13:5000/v3/auth/tokens: HTTPSConnectionPool(host='192.168.64.13', port=5000): Max retries exceeded with url: /v3/auth/tokens (Caused by SSLError(SSLError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)'),))
+ubuntu@client:~$ openstack --insecure server create --flavor myflavor --image cirros --network mynetwork --key-name mykeypair1 --min 1 --max 1 myinstance
++-----------------------------+-------------------------------------------------+
+| Field                       | Value                                           |
++-----------------------------+-------------------------------------------------+
+| OS-DCF:diskConfig           | MANUAL                                          |
+| OS-EXT-AZ:availability_zone |                                                 |
+| OS-EXT-STS:power_state      | NOSTATE                                         |
+| OS-EXT-STS:task_state       | scheduling                                      |
+| OS-EXT-STS:vm_state         | building                                        |
+| OS-SRV-USG:launched_at      | None                                            |
+| OS-SRV-USG:terminated_at    | None                                            |
+| accessIPv4                  |                                                 |
+| accessIPv6                  |                                                 |
+| addresses                   |                                                 |
+| adminPass                   | WPtqauQXzE98                                    |
+| config_drive                |                                                 |
+| created                     | 2021-12-02T02:54:37Z                            |
+| flavor                      | myflavor (513f9163-eff9-439b-9aa0-30299036152d) |
+| hostId                      |                                                 |
+| id                          | 1229d7dc-4165-41a1-a0a2-ebaafbaacfb7            |
+| image                       | cirros (26bad841-6606-40c5-8a01-decfe57252da)   |
+| key_name                    | mykeypair1                                      |
+| name                        | myinstance                                      |
+| progress                    | 0                                               |
+| project_id                  | 8e710a398d0f436e8d02e25553994484                |
+| properties                  |                                                 |
+| security_groups             | name='default'                                  |
+| status                      | BUILD                                           |
+| updated                     | 2021-12-02T02:54:37Z                            |
+| user_id                     | 226960b365dd464285457b9d42ced473                |
+| volumes_attached            |                                                 |
++-----------------------------+-------------------------------------------------+
+ubuntu@client:~$ openstack --insecure server list
+
++--------------------------------------+------------+--------+----------+--------+----------+
+| ID                                   | Name       | Status | Networks | Image  | Flavor   |
++--------------------------------------+------------+--------+----------+--------+----------+
+| 1229d7dc-4165-41a1-a0a2-ebaafbaacfb7 | myinstance | ERROR  |          | cirros | myflavor |
++--------------------------------------+------------+--------+----------+--------+----------+
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack floating ip list
+Failed to discover available identity versions when contacting https://192.168.64.13:5000/v3/. Attempting to parse version from URL.
+SSL exception connecting to https://192.168.64.13:5000/v3/auth/tokens: HTTPSConnectionPool(host='192.168.64.13', port=5000): Max retries exceeded with url: /v3/auth/tokens (Caused by SSLError(SSLError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)'),))
+ubuntu@client:~$ openstack --insecure floating ip list
++--------------------------------------+---------------------+------------------+------+--------------------------------------+----------------------------------+
+| ID                                   | Floating IP Address | Fixed IP Address | Port | Floating Network                     | Project                          |
++--------------------------------------+---------------------+------------------+------+--------------------------------------+----------------------------------+
+| a1451721-6544-4ce5-b0bf-5ee0997198e2 | 10.20.20.80         | None             | None | aa5fb043-0600-4154-a1dc-4d09d468d84d | 8e710a398d0f436e8d02e25553994484 |
++--------------------------------------+---------------------+------------------+------+--------------------------------------+----------------------------------+
+ubuntu@client:~$ IP=$(openstack floating ip list | tail -n 2 | head -n 1 | awk '{print $4}')
+Failed to discover available identity versions when contacting https://192.168.64.13:5000/v3/. Attempting to parse version from URL.
+SSL exception connecting to https://192.168.64.13:5000/v3/auth/tokens: HTTPSConnectionPool(host='192.168.64.13', port=5000): Max retries exceeded with url: /v3/auth/tokens (Caused by SSLError(SSLError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:852)'),))
+ubuntu@client:~$ IP=$(openstack --insecure floating ip list | tail -n 2 | head -n 1 | awk '{print $4}')
+ubuntu@client:~$ cat $IP
+cat: 10.20.20.80: No such file or directory
+ubuntu@client:~$ echo $IP
+10.20.20.80
+ubuntu@client:~$ openstack --insecure server add floating ip myinstance-1 $IP
+No server with a name or ID of 'myinstance-1' exists.
+ubuntu@client:~$ openstack --insecure server add floating ip myinstance $IP
+No attached ports found to associate floating IP with
+ubuntu@client:~$ 
+ubuntu@client:~$ openstack --insecure server create --flavor myflavor --image cirros --network mynetwork --key-name mykeypair1 --min 1 --max 1 myinstance
++-----------------------------+-------------------------------------------------+
+| Field                       | Value                                           |
++-----------------------------+-------------------------------------------------+
+| OS-DCF:diskConfig           | MANUAL                                          |
+| OS-EXT-AZ:availability_zone |                                                 |
+| OS-EXT-STS:power_state      | NOSTATE                                         |
+| OS-EXT-STS:task_state       | scheduling                                      |
+| OS-EXT-STS:vm_state         | building                                        |
+| OS-SRV-USG:launched_at      | None                                            |
+| OS-SRV-USG:terminated_at    | None                                            |
+| accessIPv4                  |                                                 |
+| accessIPv6                  |                                                 |
+| addresses                   |                                                 |
+| adminPass                   | zN8sU3kGcs23                                    |
+| config_drive                |                                                 |
+| created                     | 2021-12-02T03:01:20Z                            |
+| flavor                      | myflavor (513f9163-eff9-439b-9aa0-30299036152d) |
+| hostId                      |                                                 |
+| id                          | 2cb40f47-b2ae-4fa8-ba19-f96b7252f0d6            |
+| image                       | cirros (26bad841-6606-40c5-8a01-decfe57252da)   |
+| key_name                    | mykeypair1                                      |
+| name                        | myinstance                                      |
+| progress                    | 0                                               |
+| project_id                  | 8e710a398d0f436e8d02e25553994484                |
+| properties                  |                                                 |
+| security_groups             | name='default'                                  |
+| status                      | BUILD                                           |
+| updated                     | 2021-12-02T03:01:20Z                            |
+| user_id                     | 226960b365dd464285457b9d42ced473                |
+| volumes_attached            |                                                 |
++-----------------------------+-------------------------------------------------+
+ubuntu@client:~$ openstack --insecure server list
++--------------------------------------+------------+--------+----------+--------+----------+
+| ID                                   | Name       | Status | Networks | Image  | Flavor   |
++--------------------------------------+------------+--------+----------+--------+----------+
+| 2cb40f47-b2ae-4fa8-ba19-f96b7252f0d6 | myinstance | ERROR  |          | cirros | myflavor |
++--------------------------------------+------------+--------+----------+--------+----------+
+ubuntu@client:~$ openstack --insecure server list
++--------------------------------------+------------+--------+----------+--------+----------+
+| ID                                   | Name       | Status | Networks | Image  | Flavor   |
++--------------------------------------+------------+--------+----------+--------+----------+
+| 2cb40f47-b2ae-4fa8-ba19-f96b7252f0d6 | myinstance | ERROR  |          | cirros | myflavor |
++--------------------------------------+------------+--------+----------+--------+----------+
+ubuntu@client:~$ 
